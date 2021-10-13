@@ -3,30 +3,27 @@
 public static int main (string[] args) {
     Gtk.init (ref args);
 
-    int times_pressed = 0;
-
     var window = new Gtk.Window ();
     window.set_title ("Hello World!");
-    var my_grid = new Gtk.Grid ();
-
+    var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 5);
     var button = new Gtk.Button ();
-    var my_icon = new Gtk.Image ();
-    var my_label = new Gtk.Label ("This is my label");
+    var entry = new Gtk.Entry ();
+    var label = new Gtk.Label ("Set window title!");
 
-    button.set_label (@"You have pressed me: 0 times!");
-    my_icon.set_from_icon_name ("open-menu-symbolic", Gtk.IconSize.DIALOG);
-
-    my_grid.attach (button, 0, 0);
-    my_grid.attach (my_label, 1, 0);
-    my_grid.attach (my_icon, 0, 1, 2, 2);
-
+    button.set_label ("Set text as window title");
     button.clicked.connect (() => {
-        times_pressed++;
-        button.set_label (@"You have pressed me: $times_pressed times!");
+        window.set_title (entry.get_text ());
     });
 
-    window.add (my_grid);
+    entry.changed.connect (() => {
+        message (@"Content: $(entry.get_text ())");
+    });
 
+    box.pack_start (label, false, false);
+    box.pack_start (entry, false, false);
+    box.pack_start (button, false, false);
+
+    window.add (box);
     window.destroy.connect (Gtk.main_quit);
 
     window.show_all ();
