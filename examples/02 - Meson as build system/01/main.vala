@@ -1,5 +1,4 @@
-public static int main () {
-    var my_class = new MyApplication ();
-    message ("Main function");
-    return 0;
+public static int main (string[] args) {
+    var app = new MyApplication ();
+    return app.run (args);
 }

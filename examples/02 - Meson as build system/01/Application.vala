@@ -1,10 +1,12 @@
-public class MyApplication : Object {
-
+public class MyApplication : Gtk.Application {
     public MyApplication () {
-        message ("In My_Application ()");
+        Object (
+            application_id: "io.github.diegoivanme.gtk-tutorial",
+            flags: ApplicationFlags.FLAGS_NONE
+        );
     }
 
-    construct {
-        message ("In construct");
+    protected override void activate () {
+        print ("Hello World");
     }
 }
