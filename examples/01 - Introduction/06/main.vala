@@ -1,7 +1,6 @@
 #! /usr/env vala -S --pkg gtk4
 
 public static int main (string[] args) {
-
     var app = new Gtk.Application (
         "io.github.diegoivanme.gtk-tutorial",
         ApplicationFlags.FLAGS_NONE
