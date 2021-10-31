@@ -9,8 +9,7 @@ namespace GtkTutorial {
             set_default_size (400, 600);
             set_title ("My Window");
 
-            add (label);
-            show_all ();
+            set_child (label);
 
             message ("New Meson subdirectories");
         }
