@@ -1,23 +1,26 @@
-#! /usr/env vala -S --pkg gtk+-3.0
+#! /usr/env vala -S --pkg gtk4
 
 public static int main (string[] args) {
-    Gtk.init (ref args);
 
-    var window = new Gtk.Window ();
-    var header_bar = new Gtk.HeaderBar ();
-    header_bar.set_title ("My App");
-    header_bar.set_show_close_button (true);
+    var app = new Gtk.Application (
+        "io.github.diegoivanme.gtk-tutorial",
+        ApplicationFlags.FLAGS_NONE
+    );
 
-    var button = new Gtk.Button.with_label ("My Button");
-    button.get_style_context ().add_class ("suggested-action");
-    header_bar.pack_start (button);
+    app.activate.connect (() => {
+        var window = new Gtk.ApplicationWindow (app);
+        var header_bar = new Gtk.HeaderBar ();
+        window.set_title ("My App");
 
-    window.set_titlebar (header_bar);
-    window.set_default_size (600, 400);
-    window.destroy.connect (Gtk.main_quit);
+        var button = new Gtk.Button.with_label ("My Button");
+        button.add_css_class ("suggested-action");
+        header_bar.pack_start (button);
 
-    window.show_all ();
-    Gtk.main ();
+        window.set_titlebar (header_bar);
+        window.set_default_size (600, 400);
 
-    return 0;
+        window.present ();
+    });
+
+    return app.run (args);
 }
