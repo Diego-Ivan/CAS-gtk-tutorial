@@ -1,0 +1,40 @@
+{
+	"app-id": "io.github.diegoivanme.gtk-tutorial",
+	"runtime": "org.gnome.Platform",
+	"runtime-version": "41",
+	"sdk": "org.gnome.Sdk",
+	"command": "gtk-tutorial",
+
+	"finish-args": [
+		"--socket=wayland",
+		"--socket=fallback-x11",
+		"--share=ipc",
+		"--device=dri"
+	],
+
+	"cleanup": [
+    "/include",
+    "/lib/pkgconfig",
+    "/man",
+    "/share/doc",
+    "/share/gtk-doc",
+    "/share/man",
+    "/share/pkgconfig",
+    "/share/vala",
+    "*.la",
+    "*.a"
+	],
+
+	"modules": [
+		{
+			"name": "gtk-tutorial",
+			"buildsystem": "meson",
+			"sources": [
+				{
+					"type": "file",
+					"url": "."
+				}
+			]
+		}
+	]
+}
