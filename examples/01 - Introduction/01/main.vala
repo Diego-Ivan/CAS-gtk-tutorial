@@ -1,15 +1,21 @@
-#! /usr/env vala -S --pkg gtk+-3.0
+#! /usr/env vala -S --pkg gtk4
 
 public static int main (string[] args) {
-    Gtk.init (ref args);
-    var window = new Gtk.Window ();
-    window.set_title ("Hello World!");
+    var app = new Gtk.Application (
+        "io.github.diegoivanme.gtk-tutorial",
+        ApplicationFlags.FLAGS_NONE
+    );
 
-    var label = new Gtk.Label ("This is my first Gtk window");
+    app.activate.connect (() => {
+        message ("Hello World");
+        var window = new Gtk.ApplicationWindow (app);
+        window.set_title ("Hello World!");
 
-    window.add (label);
-    window.show_all ();
-    Gtk.main ();
+        var label = new Gtk.Label ("This is my first Gtk window");
 
-    return 0;
+        window.set_child (label);
+        window.present ();
+    });
+
+    return app.run (args);
 }
