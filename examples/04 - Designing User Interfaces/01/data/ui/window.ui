@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="GtkTutorialWindow" parent="GtkApplicationWindow">
+    <property name="default-width">600</property>
+    <property name="default-height">300</property>
+    <property name="title" translatable="yes">My Application</property>
+
+    <property name="titlebar">
+      <object class="GtkHeaderBar" id="header_bar">
+        <property name="show-title-buttons">True</property>
+      </object>
+    </property>
+
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+
+        <child>
+          <object class="GtkLabel">
+            <property name="label" translatable="yes">Set a title!</property>
+          </object>
+        </child>
+
+        <child>
+          <object class="GtkEntry" id="title_entry">
+            <property name="input-purpose">free-form</property>
+            <property name="placeholder-text" translatable="yes">Your window title</property>
+          </object>
+        </child>
+
+        <child>
+          <object class="GtkButton" id="entry_button">
+            <property name="label" translatable="yes">Do it!</property>
+          </object>
+        </child>
+
+      </object>
+    </child>
+
+  </template>
+</interface>
