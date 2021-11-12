@@ -32,33 +32,35 @@ namespace GtkTutorial {
 Which may look simple, but this starts being a problem when the app grows. UI Files were used by GTK in order to create a better and more maintainable UI in which you can see more clearly which widget parents others, and see the properties of each widget more expressively, like this:
 
 ```xml
-<template class="GtkTutorialWindow" parent="GtkWindow">
-	<property name="default-width">400</property>
-	<property name="default-height">400</property>
-	<property name="title">My Window</property>
+<interface>
+	<template class="GtkTutorialWindow" parent="GtkWindow">
+		<property name="default-width">400</property>
+		<property name="default-height">400</property>
+		<property name="title">My Window</property>
 	
-	<child>
-		<object class="GtkBox">
-			<property name="halign">center</property>
-			<property name="spacing">5</property>
+		<child>
+			<object class="GtkBox">
+				<property name="halign">center</property>
+				<property name="spacing">5</property>
 
-			<child>
-				<object class="GtkLabel" id="label">
-					<property name="title">My Label</property>
-				</object>
-			</child>
+				<child>
+					<object class="GtkLabel" id="label">
+						<property name="title">My Label</property>
+					</object>
+				</child>
 
-			<child>
-				<object class="GtkSwitch"/>
-			</child>
+				<child>
+					<object class="GtkSwitch"/>
+				</child>
 			
-			<child>
-				<object class="GtkSwitch"/>
-			</child>
+				<child>
+					<object class="GtkSwitch"/>
+				</child>
 
-		</object>
-	</child>
-</template>
+			</object>
+		</child>
+	</template>
+</interface>
 ```
 
 We will also learn how to use GResources in order to install this UI files and use them in our Project
