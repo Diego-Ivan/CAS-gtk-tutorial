@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="GtkTutorialWindow" parent="GtkApplicationWindow">
+    <property name="default-width">600</property>
+    <property name="default-height">300</property>
+    <property name="title" translatable="yes">My Application</property>
+
+    <child type="titlebar">
+      <object class="GtkHeaderBar" id="header_bar">
+        <property name="show-title-buttons">True</property>
+
+        <child type="start">
+          <object class="GtkButton">
+            <property name="icon-name">user-trash-symbolic</property>
+            <style>
+              <class name="destructive-action"/>
+            </style>
+          </object>
+        </child>
+
+      </object>
+    </child>
+
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <property name="halign">center</property>
+        <property name="valign">center</property>
+        <property name="spacing">12</property>
+        <style>
+          <class name="main-box"/>
+        </style>
+
+        <child>
+          <object class="GtkLabel">
+            <property name="label" translatable="yes">Set a title!</property>
+            <style>
+              <class name="title-1"/>
+            </style>
+          </object>
+        </child>
+
+        <child>
+          <object class="GtkEntry" id="title_entry">
+            <property name="input-purpose">free-form</property>
+            <property name="placeholder-text" translatable="yes">Your window title</property>
+          </object>
+        </child>
+
+        <child>
+          <object class="GtkButton" id="entry_button">
+            <property name="label" translatable="yes">Do it!</property>
+            <style>
+              <class name="suggested-action"/>
+            </style>
+          </object>
+        </child>
+
+      </object>
+    </child>
+
+  </template>
+</interface>
