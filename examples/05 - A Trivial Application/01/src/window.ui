@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.2"/>
+  <requires lib="libadwaita" version="1.0"/>
+
+  <template class="ToadWindow" parent="AdwApplicationWindow">
+    <property name="default-width">600</property>
+    <property name="default-height">300</property>
+    <property name="title">Toad Window</property>
+
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+
+        <child>
+          <object class="GtkHeaderBar">
+            <property name="show-title-buttons">true</property>
+          </object>
+        </child>
+
+        <child>
+          <object class="GtkLabel">
+            <property name="label">Hello World!</property>
+            <property name="valign">center</property>
+            <property name="halign">center</property>
+            <property name="vexpand">true</property>
+            <attributes>
+              <attribute name="weight" value="bold"/>
+              <attribute name="scale" value="2"/>
+            </attributes>
+          </object>
+        </child>
+
+      </object>
+    </child>
+
+  </template>
+</interface>

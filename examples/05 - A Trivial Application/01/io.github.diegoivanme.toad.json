@@ -1,0 +1,84 @@
+{
+  "app-id": "io.github.diegoivanme.toad",
+  "runtime": "org.gnome.Platform",
+  "runtime-version": "41",
+  "sdk": "org.gnome.Sdk",
+  "command": "toad",
+  "finish-args": [
+    "--share=network",
+    "--share=ipc",
+    "--socket=fallback-x11",
+    "--socket=wayland",
+    "--device=dri"
+  ],
+  "cleanup": [
+    "/include",
+    "/lib/pkgconfig",
+    "/man",
+    "/share/doc",
+    "/share/gtk-doc",
+    "/share/man",
+    "/share/pkgconfig",
+    "/share/vala",
+    "*.la",
+    "*.a"
+  ],
+  "modules": [
+    {
+      "name": "libsass",
+      "buildsystem": "meson",
+      "builddir": true,
+      "config-opts": [
+        "--libdir=/app/lib"
+      ],
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://github.com/lazka/libsass.git",
+          "branch": "meson"
+        }
+      ]
+    },
+    {
+      "name": "sassc",
+      "buildsystem": "meson",
+      "builddir": true,
+      "config-opts": [
+        "--libdir=/app/lib"
+      ],
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://github.com/lazka/sassc.git",
+          "branch": "meson"
+        }
+      ]
+    },
+    {
+      "name": "libadwaita",
+      "buildsystem": "meson",
+      "config-opts": [
+        "-Dexamples=false",
+        "-Dtests=false"
+      ],
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://gitlab.gnome.org/GNOME/libadwaita.git",
+          "branch": "main"
+        }
+      ]
+    },
+    {
+      "name": "toad",
+      "builddir": true,
+      "buildsystem": "meson",
+      "sources": [
+        {
+          "type": "git",
+          "url": "."
+        }
+      ]
+    }
+  ]
+}

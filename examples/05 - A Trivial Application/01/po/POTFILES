@@ -1,0 +1,7 @@
+data/io.github.diegoivanme.toad.desktop.in
+data/io.github.diegoivanme.toad.appdata.xml.in
+data/io.github.diegoivanme.toad.gschema.xml
+src/window.ui
+src/main.vala
+src/window.vala
+
